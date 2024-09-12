@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Form</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Mark Form</h1>
+        <form method="POST" action="/create">
+            <label for="Select Test">Unit Test Number</label>
+            <select id="Select Test" name="Select Test" required>
+                <option value="" disabled selected>Select the Unit Test</option>
+                <option value="Unit Test 1">Unit Test 1</option>
+                <option value="Unit Test 2">Unit Test 2</option>
+                <option value="Unit Test 3">Unit Test 3</option>
+                <option value="Unit Test 4">Unit Test 4</option>
+                <option value="Unit Test 5">Unit Test 5</option>
+                
+            </select>
+
+            <label for="Roll Number">Roll Number</label>
+            <input type="text" id="Roll Number" name="Roll Number" required>
+
+            <label for="Name">Name</label>
+            <input type="text" id="Name" name="Name" required>
+
+            <label for="Tamil Mark">Tamil Mark</label>
+            <input type="text" id="Tamil Mark" name="Tamil Mark" required>
+
+            <label for="English Mark">English Mark</label>
+            <input type="text" id="English Mark" name="English Mark" required>
+
+            <label for="Maths Mark">Maths Mark</label>
+            <input type="text" id="text" name="Maths Mark" required>
+
+            <label for="Science Mark">Science Mark</label>
+            <input type="text" id="Science Mark" name="Science Mark" required>
+
+            <label for="Social Mark">Social Mark</label>
+            <input type="text" id="Social Mark" name="Social Mark" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
