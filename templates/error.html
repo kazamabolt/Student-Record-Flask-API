@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling the body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Error Container */
+        .error-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Error Code */
+        .error-container h1 {
+            font-size: 10rem;
+            color: #ff4757;
+        }
+
+        /* Error Message */
+        .error-message {
+            font-size: 2rem;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        /* Error Description */
+        .error-description {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Button */
+        .home-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff4757;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        /* Button Hover Effect */
+        .home-button:hover {
+            background-color: #e84118;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>Error</h1>
+        <p class="error-message"> Something went Wrong</p>
+        <p class="error-description">Sorry, Please Try Again !</p>
+        <a href="/form" class="home-button">Retry</a>
+    </div>
+</body>
+</html>
