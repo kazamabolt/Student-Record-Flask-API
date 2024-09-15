@@ -40,18 +40,19 @@ def dbcon():
     cur.execute(CreateQuery)
     con.commit()
 
-    query="""INSERT INTO "Unit Test 1" ("Roll Number", "Name", "Tamil Mark", "English Mark", "Maths Mark", "Science Mark", "Social Mark") VALUES ('1', 'Vignesh B', '60', '70', '70', '80', '68')"""
-    InsertQuery=(f"""INSERT INTO "{table_name}" ("Roll Number", "Name", "Tamil Mark", "English Mark", "Maths Mark", "Science Mark", "Social Mark") VALUES (%s, %s, %s, %s, %s, %s, %s)""",(RollNumber,Name,TamilMark,EnglishMark,MathsMark,ScienceMark,SocialMark))
-    vars=(RollNumber,Name,TamilMark,EnglishMark,MathsMark,ScienceMark,SocialMark)
-    #cursor.execute("""INSERT INTO my_data (name, age, score1, score2, score3, score4, score5) VALUES (%s, %s, %s, %s, %s, %s, %s) """, (name, age, score1, score2, score3, score4, score5))
-    print(query)
-    cur.execute(InsertQuery)
-    con.commit()
+    try:
+        #INSERT INTO "Unit Test 1" ("Roll Number", "Name", "Tamil Mark", "English Mark", "Maths Mark", "Science Mark", "Social Mark") VALUES ('1', 'Vignesh B', '60', '70', '70', '80', '68')"""
+        cur.execute(f"""INSERT INTO "{table_name}" ("Roll Number", "Name", "Tamil Mark", "English Mark", "Maths Mark", "Science Mark", "Social Mark") VALUES (%s, %s, %s, %s, %s, %s, %s)""",(RollNumber,Name,TamilMark,EnglishMark,MathsMark,ScienceMark,SocialMark))
+        con.commit()
 
-    cur.close()
-    con.close()
+        cur.close()
+        con.close()
 
-    return render_template('Success.html')
+        return render_template('Success.html')
+    
+    except Exception as e:
+        print(f"Error occured : {e}")
+        return render_template('error.html')
 
 if __name__== '__main__':
     app.run(debug=True)
