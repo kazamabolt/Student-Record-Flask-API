@@ -1,7 +1,9 @@
-from flask import Flask, render_template,json,request
+from flask import Flask, render_template,json,request,Response
 import psycopg2
+from flask_cors import CORS
 
 app=Flask(__name__)
+CORS(app)
 
 def connection():
     con= psycopg2.connect(database="Vignesh",host="localhost", user="postgres", password="171120",port="5432")
@@ -53,6 +55,29 @@ def dbcon():
     except Exception as e:
         print(f"Error occured : {e}")
         return render_template('error.html')
+    
+@app.route('/getData', methods=['GET'])
+def getData():
+    try:
+        con=connection()
+        cur=con.cursor()
+        cur.execute(f'SELECT * FROM "Unit Test 1" ORDER BY "Roll Number";')
+        rows = cur.fetchall()
+        colnames = [desc[0] for desc in cur.description]
+        data = [dict(zip(colnames, row)) for row in rows]
+        cur.close()
+        con.close()
+        print(data)
+        json_data = json.dumps(data, indent=4)  
+        print(json_data)      
+        return Response(json_data, mimetype='application/json')
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return Response(
+            json.dumps({"error": "An error occurred while retrieving data"}),
+            mimetype='application/json'
+        ), 500
 
 if __name__== '__main__':
     app.run(debug=True)
