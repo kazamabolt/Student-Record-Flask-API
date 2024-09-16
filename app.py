@@ -66,7 +66,7 @@ def fetch_student_data():
     con.close()
     return results
 
-def calculate_averages(data):
+def calculate_TotalAverages(data):
     Students_Total_Averages = []
     for row in data:
         RollNumber,Name,TamilMark,EnglishMark,MathsMark,ScienceMark,SocialMark = row
@@ -81,7 +81,7 @@ def calculate_averages(data):
 @app.route('/students-average', methods=['GET'])
 def get_student_TotalAverages():
     student_data = fetch_student_data()
-    Toatl_Averages = calculate_TotalAverages(student_data)
+    Total_Averages = calculate_TotalAverages(student_data)
     return jsonify(Total_Averages)
     
 @app.route('/getData', methods=['GET'])
