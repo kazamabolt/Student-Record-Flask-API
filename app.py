@@ -1,4 +1,4 @@
-from flask import Flask, render_template,json,request,Response
+from flask import Flask, render_template,jsonify,request,Response
 import psycopg2
 from flask_cors import CORS
 
